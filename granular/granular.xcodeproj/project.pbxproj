@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0B8D19162299B6BB003AB008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19152299B6BB003AB008 /* AppDelegate.swift */; };
-		0B8D19182299B6BB003AB008 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19172299B6BB003AB008 /* ViewController.swift */; };
+		0B8D19182299B6BB003AB008 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19172299B6BB003AB008 /* ItemsViewController.swift */; };
 		0B8D191B2299B6BB003AB008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D19192299B6BB003AB008 /* Main.storyboard */; };
 		0B8D191E2299B6BB003AB008 /* granular.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D191C2299B6BB003AB008 /* granular.xcdatamodeld */; };
 		0B8D19202299B6BD003AB008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D191F2299B6BD003AB008 /* Assets.xcassets */; };
 		0B8D19232299B6BD003AB008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D19212299B6BD003AB008 /* LaunchScreen.storyboard */; };
 		0B8D192E2299B6BD003AB008 /* granularTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D192D2299B6BD003AB008 /* granularTests.swift */; };
+		0B8D19392299BB07003AB008 /* APIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19382299BB07003AB008 /* APIConnector.swift */; };
+		0B8D193C2299BB76003AB008 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193B2299BB76003AB008 /* Result.swift */; };
+		0B8D193E2299BC72003AB008 /* GRAPIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193D2299BC72003AB008 /* GRAPIConnector.swift */; };
+		0B8D19402299BDAC003AB008 /* GRNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193F2299BDAC003AB008 /* GRNetworkManager.swift */; };
+		0B8D19422299BDDE003AB008 /* GRNetworkGlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19412299BDDE003AB008 /* GRNetworkGlobalSettings.swift */; };
+		0B8D19442299BEBC003AB008 /* GRItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19432299BEBC003AB008 /* GRItemModel.swift */; };
+		0B8D19472299C27A003AB008 /* GRDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19462299C27A003AB008 /* GRDataManager.swift */; };
+		0B8D194F2299C4AF003AB008 /* GRItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D194D2299C4AF003AB008 /* GRItemTableViewCell.swift */; };
+		0B8D19502299C4AF003AB008 /* GRItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D194E2299C4AF003AB008 /* GRItemTableViewCell.xib */; };
+		0B8D19522299C662003AB008 /* UIImageView+Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19512299C662003AB008 /* UIImageView+Downloads.swift */; };
+		0B8D19552299CD66003AB008 /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19542299CD66003AB008 /* ItemsViewModel.swift */; };
+		0B8D19572299D204003AB008 /* TableViewCell+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +41,7 @@
 /* Begin PBXFileReference section */
 		0B8D19122299B6BB003AB008 /* granular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = granular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8D19152299B6BB003AB008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B8D19172299B6BB003AB008 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0B8D19172299B6BB003AB008 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		0B8D191A2299B6BB003AB008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0B8D191D2299B6BB003AB008 /* granular.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = granular.xcdatamodel; sourceTree = "<group>"; };
 		0B8D191F2299B6BD003AB008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +50,20 @@
 		0B8D19292299B6BD003AB008 /* granularTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = granularTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8D192D2299B6BD003AB008 /* granularTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = granularTests.swift; sourceTree = "<group>"; };
 		0B8D192F2299B6BD003AB008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B8D19382299BB07003AB008 /* APIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnector.swift; sourceTree = "<group>"; };
+		0B8D193B2299BB76003AB008 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		0B8D193D2299BC72003AB008 /* GRAPIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRAPIConnector.swift; sourceTree = "<group>"; };
+		0B8D193F2299BDAC003AB008 /* GRNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRNetworkManager.swift; sourceTree = "<group>"; };
+		0B8D19412299BDDE003AB008 /* GRNetworkGlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRNetworkGlobalSettings.swift; sourceTree = "<group>"; };
+		0B8D19432299BEBC003AB008 /* GRItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRItemModel.swift; sourceTree = "<group>"; };
+		0B8D19462299C27A003AB008 /* GRDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDataManager.swift; sourceTree = "<group>"; };
+		0B8D19482299C3DF003AB008 /* GRItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0B8D19492299C3DF003AB008 /* GRItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0B8D194D2299C4AF003AB008 /* GRItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRItemTableViewCell.swift; sourceTree = "<group>"; };
+		0B8D194E2299C4AF003AB008 /* GRItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GRItemTableViewCell.xib; sourceTree = "<group>"; };
+		0B8D19512299C662003AB008 /* UIImageView+Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Downloads.swift"; sourceTree = "<group>"; };
+		0B8D19542299CD66003AB008 /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
+		0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +105,20 @@
 		0B8D19142299B6BB003AB008 /* granular */ = {
 			isa = PBXGroup;
 			children = (
+				0B8D193A2299BB0E003AB008 /* Services */,
+				0B8D194C2299C401003AB008 /* CoreData */,
+				0B8D19452299C099003AB008 /* Models */,
 				0B8D19152299B6BB003AB008 /* AppDelegate.swift */,
-				0B8D19172299B6BB003AB008 /* ViewController.swift */,
+				0B8D19462299C27A003AB008 /* GRDataManager.swift */,
+				0B8D19172299B6BB003AB008 /* ItemsViewController.swift */,
+				0B8D19542299CD66003AB008 /* ItemsViewModel.swift */,
+				0B8D194D2299C4AF003AB008 /* GRItemTableViewCell.swift */,
+				0B8D194E2299C4AF003AB008 /* GRItemTableViewCell.xib */,
 				0B8D19192299B6BB003AB008 /* Main.storyboard */,
 				0B8D191F2299B6BD003AB008 /* Assets.xcassets */,
 				0B8D19212299B6BD003AB008 /* LaunchScreen.storyboard */,
 				0B8D19242299B6BD003AB008 /* Info.plist */,
-				0B8D191C2299B6BB003AB008 /* granular.xcdatamodeld */,
+				0B8D19532299C875003AB008 /* Helpers */,
 			);
 			path = granular;
 			sourceTree = "<group>";
@@ -97,6 +130,45 @@
 				0B8D192F2299B6BD003AB008 /* Info.plist */,
 			);
 			path = granularTests;
+			sourceTree = "<group>";
+		};
+		0B8D193A2299BB0E003AB008 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0B8D19382299BB07003AB008 /* APIConnector.swift */,
+				0B8D193D2299BC72003AB008 /* GRAPIConnector.swift */,
+				0B8D193F2299BDAC003AB008 /* GRNetworkManager.swift */,
+				0B8D19412299BDDE003AB008 /* GRNetworkGlobalSettings.swift */,
+				0B8D193B2299BB76003AB008 /* Result.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0B8D19452299C099003AB008 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B8D19432299BEBC003AB008 /* GRItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B8D194C2299C401003AB008 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0B8D191C2299B6BB003AB008 /* granular.xcdatamodeld */,
+				0B8D19482299C3DF003AB008 /* GRItem+CoreDataClass.swift */,
+				0B8D19492299C3DF003AB008 /* GRItem+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0B8D19532299C875003AB008 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0B8D19512299C662003AB008 /* UIImageView+Downloads.swift */,
+				0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +255,7 @@
 				0B8D19232299B6BD003AB008 /* LaunchScreen.storyboard in Resources */,
 				0B8D19202299B6BD003AB008 /* Assets.xcassets in Resources */,
 				0B8D191B2299B6BB003AB008 /* Main.storyboard in Resources */,
+				0B8D19502299C4AF003AB008 /* GRItemTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,8 +273,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B8D19182299B6BB003AB008 /* ViewController.swift in Sources */,
+				0B8D19472299C27A003AB008 /* GRDataManager.swift in Sources */,
+				0B8D194F2299C4AF003AB008 /* GRItemTableViewCell.swift in Sources */,
+				0B8D19442299BEBC003AB008 /* GRItemModel.swift in Sources */,
+				0B8D19182299B6BB003AB008 /* ItemsViewController.swift in Sources */,
+				0B8D19552299CD66003AB008 /* ItemsViewModel.swift in Sources */,
+				0B8D19422299BDDE003AB008 /* GRNetworkGlobalSettings.swift in Sources */,
+				0B8D193E2299BC72003AB008 /* GRAPIConnector.swift in Sources */,
+				0B8D19572299D204003AB008 /* TableViewCell+Helper.swift in Sources */,
+				0B8D193C2299BB76003AB008 /* Result.swift in Sources */,
 				0B8D19162299B6BB003AB008 /* AppDelegate.swift in Sources */,
+				0B8D19522299C662003AB008 /* UIImageView+Downloads.swift in Sources */,
+				0B8D19392299BB07003AB008 /* APIConnector.swift in Sources */,
+				0B8D19402299BDAC003AB008 /* GRNetworkManager.swift in Sources */,
 				0B8D191E2299B6BB003AB008 /* granular.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
