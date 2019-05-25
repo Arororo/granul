@@ -11,8 +11,20 @@ import UIKit
 extension UIImageView {
     
     static let imageCache: NSCache<NSString, UIImage> =  NSCache<NSString, UIImage>()
+    static private var downloadTaskKey: Void?
+    var downloadTask: URLSessionDataTask? {
+        get {
+            return objc_getAssociatedObject(self, &UIImageView.downloadTaskKey) as? URLSessionDataTask
+        }
+        set(newValue) {
+            objc_setAssociatedObject(self, &UIImageView.downloadTaskKey,
+                                     newValue,
+                                     .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
     
     func loadImageUsingCache(withUrl urlString : String, completion: ((Bool) -> Void)? )  {
+        self.downloadTask?.cancel()
         self.image = nil
         guard var urlComponents = URLComponents(string: urlString) else {
             completion?(false)
@@ -33,7 +45,7 @@ extension UIImageView {
         // if not, download image from url
         var request = URLRequest(url: url)
         request.httpMethod = APIMethod.get.rawValue
-        URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+        self.downloadTask = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             if error != nil {
                 print(error!)
                 completion?(false)
@@ -48,6 +60,7 @@ extension UIImageView {
                     completion?(false)
                 }
             }
-        }).resume()
+        })
+        self.downloadTask?.resume()
     }
 }
