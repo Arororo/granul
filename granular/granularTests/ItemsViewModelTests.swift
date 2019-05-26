@@ -19,7 +19,16 @@ class ItemsViewModelTests: XCTestCase {
         viewModel.load()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             XCTAssert(viewModel.status == .success)
-            XCTAssert(viewModel.itemsCount == dataManager.itemsCount)
+            XCTAssert(viewModel.itemsCount == viewModel.pageSize)
+            XCTAssert(viewModel.page == 0)
+            XCTAssertNil(viewModel.alertMessage())
+            XCTAssertNil(viewModel.infoMessage())
+        }
+        viewModel.loadNextPage()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            XCTAssert(viewModel.status == .success)
+            XCTAssert(viewModel.itemsCount == viewModel.pageSize * 2)
+            XCTAssert(viewModel.page == 1)
             XCTAssertNil(viewModel.alertMessage())
             XCTAssertNil(viewModel.infoMessage())
         }
@@ -32,7 +41,7 @@ class ItemsViewModelTests: XCTestCase {
         viewModel.load()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             XCTAssert(viewModel.status == .success)
-            XCTAssert(viewModel.itemsCount == dataManager.itemsCount)
+            XCTAssert(viewModel.itemsCount == viewModel.pageSize)
             XCTAssertNil(viewModel.alertMessage())
             XCTAssertNotNil(viewModel.infoMessage())
         }

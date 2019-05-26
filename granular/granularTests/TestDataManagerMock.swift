@@ -32,7 +32,15 @@ class TestDataManagerMock {
 }
 
 extension TestDataManagerMock: DataManager {
-    func getItems(completion: @escaping ([GRItemPresentable]?, Error?) -> Void) {
-        completion(nil, self.error)
+    func getItems(startingIndex: Int?, size: Int?, completion: @escaping([GRItemPresentable]?, Error?) -> Void) {
+        guard let startingIndex = startingIndex, let size = size else {
+            completion(self.items, self.error)
+            return
+        }
+        var items: [GRItemPresentable]? = nil
+        if let currentItems = self.items {
+            items = Array(currentItems[startingIndex...startingIndex+size])
+        }
+        completion(items, self.error)
     }
 }
