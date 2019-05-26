@@ -21,21 +21,23 @@ class GRDataManager {
     }
     
     func getItems(completion: @escaping(Result<[GRItem], Error>) -> Void) {
-        GRNetworkManager.shared.getItems { (result) in
+        self.networkManager.getItems { (result) in
             switch result {
             case .success(let itemModels):
-                if let error = self.coreDataManager.replaceItems(itemModels) {
-                    completion(.failure(error))
-                    return
-                }
-                self.coreDataManager.getItems { result in
-                    switch result {
-                    case .success(let items):
-                        completion(.success(items ?? [GRItem]()))
-                    case .failure(let error):
+                self.coreDataManager.replaceItems(itemModels, completion: { error in
+                    if let error = error {
                         completion(.failure(error))
+                        return
                     }
-                }
+                    self.coreDataManager.getItems { result in
+                        switch result {
+                        case .success(let items):
+                            completion(.success(items ?? [GRItem]()))
+                        case .failure(let error):
+                            completion(.failure(error))
+                        }
+                    }
+                })
             case .failure(let error):
                 completion(.failure(error))
             }

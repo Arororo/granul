@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol CoreDataManager {
-    func replaceItems(_ items: [GRItemModel]) -> Error?
+    func replaceItems(_ items: [GRItemModel], completion: @escaping(Error?) -> Void)
     func getItems(completion: @escaping(Result<[GRItem]?, Error>) -> Void)
 }
 
@@ -42,11 +42,14 @@ class GRCoreDataManager: CoreDataManager {
         return nil
     }
     
-    func replaceItems(_ items: [GRItemModel]) -> Error? {
-        if let error = self.clearItems() {
-            return error
+    func replaceItems(_ items: [GRItemModel], completion: @escaping(Error?) -> Void) {
+        DispatchQueue.main.async {
+            if let error = self.clearItems() {
+                completion(error)
+                return
+            }
+            completion(self.addItems(items))
         }
-        return self.addItems(items)
     }
     
     func clearItems() -> Error? {
@@ -70,15 +73,17 @@ class GRCoreDataManager: CoreDataManager {
     }
     
     func getItems(completion: @escaping(Result<[GRItem]?, Error>) -> Void) {
-        let context = self.mainContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "GRItem")
-        request.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            completion(.success(result as? [GRItem]))
-        } catch {
-            completion(.failure(error))
+        DispatchQueue.main.async {
+            let context = self.mainContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "GRItem")
+            request.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
+            request.returnsObjectsAsFaults = false
+            do {
+                let result = try context.fetch(request)
+                completion(.success(result as? [GRItem]))
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
 }
