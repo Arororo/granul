@@ -19,7 +19,7 @@ class GRItemTableViewCell: UITableViewCell {
         self.nameLabel.text = nil
     }
     
-    func configure(with item: GRItem) {
+    func configure(with item: GRItemPresentable) {
         self.nameLabel.text = item.name
         if let imgPath = item.url {
             let imageUrl = GRNetworkManager.shared.iconUrlString(for: imgPath)

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol NetworkManager {
-    func getItems(completion: @escaping(Result<[GRItemModel], Error>) -> Void)
+    func getItems(completion: @escaping(Result<[GRItemNetworkModel], Error>) -> Void)
 }
 class GRNetworkManager: NetworkManager {
     
@@ -24,9 +24,9 @@ class GRNetworkManager: NetworkManager {
         return "\(apiConnector.baseURL)/\(iconCode)"
     }
     
-    func getItems(completion: @escaping(Result<[GRItemModel], Error>) -> Void) {
+    func getItems(completion: @escaping(Result<[GRItemNetworkModel], Error>) -> Void) {
         let params = [String : Any]()
-        apiConnector.performRequest(method: APIMethod.get, path: itemsSubPath, queryParameters: params) { (result: Result<[GRItemModel], Error> ) in
+        apiConnector.performRequest(method: APIMethod.get, path: itemsSubPath, queryParameters: params) { (result: Result<[GRItemNetworkModel], Error> ) in
             switch result {
             case .success(let itemModels):
                 completion(Result.success(itemModels))

@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol CoreDataManager {
-    func replaceItems(_ items: [GRItemModel], completion: @escaping(Error?) -> Void)
+    func replaceItems(_ items: [GRItemNetworkModel], completion: @escaping(Error?) -> Void)
     func getItems(completion: @escaping(Result<[GRItem]?, Error>) -> Void)
 }
 
@@ -42,7 +42,7 @@ class GRCoreDataManager: CoreDataManager {
         return nil
     }
     
-    func replaceItems(_ items: [GRItemModel], completion: @escaping(Error?) -> Void) {
+    func replaceItems(_ items: [GRItemNetworkModel], completion: @escaping(Error?) -> Void) {
         DispatchQueue.main.async {
             if let error = self.clearItems() {
                 completion(error)
@@ -65,7 +65,7 @@ class GRCoreDataManager: CoreDataManager {
         }
     }
     
-    func addItems(_ items: [GRItemModel]) -> Error? {
+    func addItems(_ items: [GRItemNetworkModel]) -> Error? {
         let context = self.mainContext
         let cdItems = items.compactMap({ GRItem.makeObject(from: $0, context: context) })
         cdItems.enumerated().forEach {$0.element.index = Int64($0.offset)}

@@ -9,8 +9,10 @@
 import Foundation
 import CoreData
 
+extension GRItem: GRItemPresentable { }
+
 extension GRItem {
-    static func makeObject(from modelItem: GRItemModel, context: NSManagedObjectContext) -> GRItem? {
+    static func makeObject(from modelItem: GRItemNetworkModel, context: NSManagedObjectContext) -> GRItem? {
         guard let entity = NSEntityDescription.entity(forEntityName: "GRItem", in: context) else {
             print("!!! Something went wrong! \(#function)")
             return nil

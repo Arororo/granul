@@ -19,7 +19,7 @@
 		0B8D193E2299BC72003AB008 /* GRAPIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193D2299BC72003AB008 /* GRAPIConnector.swift */; };
 		0B8D19402299BDAC003AB008 /* GRNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193F2299BDAC003AB008 /* GRNetworkManager.swift */; };
 		0B8D19422299BDDE003AB008 /* GRNetworkGlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19412299BDDE003AB008 /* GRNetworkGlobalSettings.swift */; };
-		0B8D19442299BEBC003AB008 /* GRItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19432299BEBC003AB008 /* GRItemModel.swift */; };
+		0B8D19442299BEBC003AB008 /* GRItemNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19432299BEBC003AB008 /* GRItemNetworkModel.swift */; };
 		0B8D19472299C27A003AB008 /* GRDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19462299C27A003AB008 /* GRDataManager.swift */; };
 		0B8D194F2299C4AF003AB008 /* GRItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D194D2299C4AF003AB008 /* GRItemTableViewCell.swift */; };
 		0B8D19502299C4AF003AB008 /* GRItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D194E2299C4AF003AB008 /* GRItemTableViewCell.xib */; };
@@ -28,6 +28,7 @@
 		0B8D19572299D204003AB008 /* TableViewCell+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */; };
 		0B8D1959229A0B27003AB008 /* GRCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D1958229A0B27003AB008 /* GRCoreDataManager.swift */; };
 		0B8D195B229B0E6E003AB008 /* GRItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D195A229B0E6E003AB008 /* GRItem+Extension.swift */; };
+		0B8D195D229B3CD9003AB008 /* TestDataManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D195C229B3CD9003AB008 /* TestDataManagerMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +58,7 @@
 		0B8D193D2299BC72003AB008 /* GRAPIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRAPIConnector.swift; sourceTree = "<group>"; };
 		0B8D193F2299BDAC003AB008 /* GRNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRNetworkManager.swift; sourceTree = "<group>"; };
 		0B8D19412299BDDE003AB008 /* GRNetworkGlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRNetworkGlobalSettings.swift; sourceTree = "<group>"; };
-		0B8D19432299BEBC003AB008 /* GRItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRItemModel.swift; sourceTree = "<group>"; };
+		0B8D19432299BEBC003AB008 /* GRItemNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRItemNetworkModel.swift; sourceTree = "<group>"; };
 		0B8D19462299C27A003AB008 /* GRDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRDataManager.swift; sourceTree = "<group>"; };
 		0B8D19482299C3DF003AB008 /* GRItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRItem+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0B8D19492299C3DF003AB008 /* GRItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 		0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Helper.swift"; sourceTree = "<group>"; };
 		0B8D1958229A0B27003AB008 /* GRCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRCoreDataManager.swift; sourceTree = "<group>"; };
 		0B8D195A229B0E6E003AB008 /* GRItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRItem+Extension.swift"; sourceTree = "<group>"; };
+		0B8D195C229B3CD9003AB008 /* TestDataManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataManagerMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				0B8D192D2299B6BD003AB008 /* granularTests.swift */,
 				0B8D192F2299B6BD003AB008 /* Info.plist */,
+				0B8D195C229B3CD9003AB008 /* TestDataManagerMock.swift */,
 			);
 			path = granularTests;
 			sourceTree = "<group>";
@@ -151,7 +154,7 @@
 		0B8D19452299C099003AB008 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0B8D19432299BEBC003AB008 /* GRItemModel.swift */,
+				0B8D19432299BEBC003AB008 /* GRItemNetworkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,7 +285,7 @@
 				0B8D19472299C27A003AB008 /* GRDataManager.swift in Sources */,
 				0B8D195B229B0E6E003AB008 /* GRItem+Extension.swift in Sources */,
 				0B8D194F2299C4AF003AB008 /* GRItemTableViewCell.swift in Sources */,
-				0B8D19442299BEBC003AB008 /* GRItemModel.swift in Sources */,
+				0B8D19442299BEBC003AB008 /* GRItemNetworkModel.swift in Sources */,
 				0B8D19182299B6BB003AB008 /* ItemsViewController.swift in Sources */,
 				0B8D19552299CD66003AB008 /* ItemsViewModel.swift in Sources */,
 				0B8D19422299BDDE003AB008 /* GRNetworkGlobalSettings.swift in Sources */,
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B8D192E2299B6BD003AB008 /* granularTests.swift in Sources */,
+				0B8D195D229B3CD9003AB008 /* TestDataManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

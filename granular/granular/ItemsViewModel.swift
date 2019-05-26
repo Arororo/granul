@@ -15,7 +15,7 @@ protocol ItemsViewModelDelegate: class {
 class ItemsViewModel: NSObject {
     weak var delegate: ItemsViewModelDelegate?
     private var dataManager: DataManager
-    private var items: [GRItem]?
+    private var items: [GRItemPresentable]?
     private var error: Error?
     var status = Status.loading
     
@@ -36,7 +36,7 @@ class ItemsViewModel: NSObject {
         }
     }
     
-    func update(with items: [GRItem]?, error: Error?) {
+    func update(with items: [GRItemPresentable]?, error: Error?) {
         self.items = items
         self.error = error
         if let error = error, !(error is GRServerError) {
@@ -47,7 +47,7 @@ class ItemsViewModel: NSObject {
         self.delegate?.modelUpdated(self)
     }
     
-    func item(for indexPath: IndexPath) -> GRItem? {
+    func item(for indexPath: IndexPath) -> GRItemPresentable? {
         guard indexPath.row < self.itemsCount, let items = self.items else {
             return nil
         }
@@ -59,7 +59,7 @@ class ItemsViewModel: NSObject {
     }
     
     func infoMessage() -> String? {
-        guard let error =  self.error as? GRServerError else {
+        guard let _ =  self.error as? GRServerError else {
             return nil
         }
         return "Network call is failed. Items loaded from the locally stored copy"

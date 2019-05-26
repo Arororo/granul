@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DataManager {
-    func getItems(completion: @escaping([GRItem]?, Error?) -> Void)
+    func getItems(completion: @escaping([GRItemPresentable]?, Error?) -> Void)
 }
 
 class GRDataManager {
@@ -26,7 +26,7 @@ class GRDataManager {
 }
 
 extension GRDataManager: DataManager{
-    func getItems(completion: @escaping([GRItem]?, Error?) -> Void) {
+    func getItems(completion: @escaping([GRItemPresentable]?, Error?) -> Void) {
         self.networkManager.getItems { (result) in
             switch result {
             case .success(let itemModels):

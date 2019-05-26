@@ -8,7 +8,12 @@
 
 import UIKit
 
-struct GRItemModel: Codable {
+protocol GRItemPresentable {
+    var name: String? { get }
+    var url: String? { get }
+}
+
+struct GRItemNetworkModel: Codable, GRItemPresentable {
     var name: String?
     var url: String?
 }
