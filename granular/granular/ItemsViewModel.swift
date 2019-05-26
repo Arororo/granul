@@ -27,23 +27,20 @@ class ItemsViewModel: NSObject {
     }
     
     func load() {
-        GRDataManager.shared.getItems { result in
+        GRDataManager.shared.getItems { items, error in
             DispatchQueue.main.async { [weak self] in
-                self?.update(with: result)
+                self?.update(with: items, error: error)
             }
         }
     }
     
-    func update(with result: Result<[GRItem], Error>) {
-        self.items = nil
-        self.error = nil
-        switch result {
-        case .success(let items):
-            self.items = items
-            self.status = .success
-        case .failure(let error):
-            self.error = error
+    func update(with items: [GRItem]?, error: Error?) {
+        self.items = items
+        self.error = error
+        if let error = error, !(error is GRServerError) {
             self.status = .error
+        } else {
+            self.status = .success
         }
         self.delegate?.modelUpdated(self)
     }
@@ -53,6 +50,17 @@ class ItemsViewModel: NSObject {
             return nil
         }
         return items[indexPath.row]
+    }
+    
+    func alertMessage() -> String? {
+        return (self.error as NSError?)?.localizedDescription
+    }
+    
+    func infoMessage() -> String? {
+        guard let error =  self.error as? GRServerError else {
+            return nil
+        }
+        return "Network call is failed. Items loaded from the locally stored copy"
     }
 }
 

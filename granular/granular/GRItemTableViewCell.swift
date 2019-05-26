@@ -15,7 +15,7 @@ class GRItemTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.itemIcon.image = nil
+        self.itemIcon.image = UIImage(named: "question")
         self.nameLabel.text = nil
     }
     
@@ -27,6 +27,9 @@ class GRItemTableViewCell: UITableViewCell {
             self.itemIcon.loadImageUsingCache(withUrl: imageUrl, completion: { isSuccess in
                 DispatchQueue.main.async { [weak self] in
                     self?.iconActivityIndicator.stopAnimating()
+                }
+                if !isSuccess {
+                    self.itemIcon.image = UIImage(named: "question")
                 }
             })
         }

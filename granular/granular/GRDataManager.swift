@@ -20,26 +20,33 @@ class GRDataManager {
         self.coreDataManager = coreDataManager
     }
     
-    func getItems(completion: @escaping(Result<[GRItem], Error>) -> Void) {
+    func getItems(completion: @escaping([GRItem]?, Error?) -> Void) {
         self.networkManager.getItems { (result) in
             switch result {
             case .success(let itemModels):
                 self.coreDataManager.replaceItems(itemModels, completion: { error in
                     if let error = error {
-                        completion(.failure(error))
+                        completion(nil, error)
                         return
                     }
                     self.coreDataManager.getItems { result in
                         switch result {
                         case .success(let items):
-                            completion(.success(items ?? [GRItem]()))
+                            completion(items, nil)
                         case .failure(let error):
-                            completion(.failure(error))
+                            completion(nil, error)
                         }
                     }
                 })
-            case .failure(let error):
-                completion(.failure(error))
+            case .failure(let networkError):
+                self.coreDataManager.getItems { result in
+                    switch result {
+                    case .success(let items):
+                        completion(items, networkError)
+                    case .failure(let error):
+                        completion(nil, error)
+                    }
+                }
             }
         }
     }

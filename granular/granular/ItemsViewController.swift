@@ -10,13 +10,18 @@ import UIKit
 
 class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var infoBahherHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var infoLabel: UILabel!
+    weak var refreshControl: UIRefreshControl?
     
     private var viewModel: ItemsViewModel?
-    weak var refreshControl: UIRefreshControl?
+    private var defaultInfoBannerHeight: CGFloat = 40
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.defaultInfoBannerHeight = self.infoBahherHeightConstraint.constant
         self.viewModel = ItemsViewModel(with: self)
+        self.modelUpdated(self.viewModel!)
         
         self.setupTableView()
         self.viewModel?.load()
@@ -45,6 +50,19 @@ extension ItemsViewController: ItemsViewModelDelegate{
     func modelUpdated(_ model: ItemsViewModel) {
         self.tableView.reloadData()
         self.refreshControl?.endRefreshing()
+        switch model.status {
+        case .error:
+            let alert = UIAlertController(title: "Error!!!", message: model.alertMessage(), preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+        default:
+            if let infoMessage = model.infoMessage() {
+                self.infoLabel.text = infoMessage
+                self.infoBahherHeightConstraint.constant = self.defaultInfoBannerHeight
+            } else {
+                self.infoLabel.text = nil
+                self.infoBahherHeightConstraint.constant = 0
+            }
+        }
     }
     
 }

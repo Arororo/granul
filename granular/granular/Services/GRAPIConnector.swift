@@ -50,6 +50,7 @@ class GRAPIConnector: APIConnector {
             return
         }
         var request = URLRequest(url: requestURL)
+        request.cachePolicy = .reloadIgnoringLocalCacheData
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headerParameters
         let task = session.dataTask(with: request, completionHandler: {data, urlresponse, error -> Void in

@@ -19,18 +19,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jgX-F4-EQX">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="ZbO-0u-s5J"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="V95-yv-9pO"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD0-eA-p6w" userLabel="infoBanner">
+                                <rect key="frame" x="0.0" y="88" width="414" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="NHA-JN-VI6" userLabel="infoLabel">
+                                        <rect key="frame" x="8" y="3" width="73.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KkW-hE-cbV"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NHA-JN-VI6" secondAttribute="bottom" constant="3" id="Nin-He-drA"/>
+                                    <constraint firstItem="NHA-JN-VI6" firstAttribute="top" secondItem="uD0-eA-p6w" secondAttribute="top" constant="3" id="Tn3-gu-797"/>
+                                    <constraint firstItem="NHA-JN-VI6" firstAttribute="leading" secondItem="uD0-eA-p6w" secondAttribute="leading" constant="8" id="eJC-ue-d08"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NHA-JN-VI6" secondAttribute="trailing" constant="8" id="nfi-TS-XxZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="uD0-eA-p6w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5Z8-gp-K6W"/>
                             <constraint firstItem="jgX-F4-EQX" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Dct-dq-33D"/>
-                            <constraint firstItem="jgX-F4-EQX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MiT-Eq-FLC"/>
+                            <constraint firstItem="jgX-F4-EQX" firstAttribute="top" secondItem="uD0-eA-p6w" secondAttribute="bottom" id="EUr-s6-g5h"/>
+                            <constraint firstItem="uD0-eA-p6w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HUa-qb-FSW"/>
+                            <constraint firstItem="uD0-eA-p6w" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vha-rI-kbI"/>
+                            <constraint firstItem="jgX-F4-EQX" firstAttribute="top" secondItem="uD0-eA-p6w" secondAttribute="bottom" id="Vua-yc-Azw"/>
                             <constraint firstItem="jgX-F4-EQX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="g7w-Rn-h7S"/>
                             <constraint firstItem="jgX-F4-EQX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="u1d-4L-V0i"/>
                         </constraints>
@@ -38,6 +61,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Granular Data" id="GZa-ZI-CVO"/>
                     <connections>
+                        <outlet property="infoBahherHeightConstraint" destination="KkW-hE-cbV" id="zhJ-tQ-VOW"/>
+                        <outlet property="infoLabel" destination="NHA-JN-VI6" id="ngl-al-Syg"/>
                         <outlet property="tableView" destination="jgX-F4-EQX" id="Wju-7Y-FaO"/>
                     </connections>
                 </viewController>
