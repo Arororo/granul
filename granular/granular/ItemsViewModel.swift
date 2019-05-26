@@ -17,6 +17,9 @@ class ItemsViewModel: NSObject {
     private var dataManager: DataManager
     private var items: [GRItemPresentable]?
     private var error: Error?
+    let pageSize = 30
+    var page = 0
+    var moreAvailable = true
     var status = Status.loading
     
     var itemsCount: Int {
@@ -29,7 +32,20 @@ class ItemsViewModel: NSObject {
     }
     
     func load() {
-        GRDataManager.shared.getItems { items, error in
+        self.status = .loading
+        self.page = 0
+        self.items = nil
+        GRDataManager.shared.getItems(startingIndex: self.page * self.pageSize, size: self.pageSize) { items, error in
+            DispatchQueue.main.async { [weak self] in
+                self?.update(with: items, error: error)
+            }
+        }
+    }
+    
+    func loadNextPage() {
+        self.status = .loading
+        print("Load page \(self.page + 1)")
+        GRDataManager.shared.getItems(startingIndex: (self.page + 1) * self.pageSize, size: self.pageSize) { items, error in
             DispatchQueue.main.async { [weak self] in
                 self?.update(with: items, error: error)
             }
@@ -37,7 +53,14 @@ class ItemsViewModel: NSObject {
     }
     
     func update(with items: [GRItemPresentable]?, error: Error?) {
-        self.items = items
+        if let currentItems = self.items, let newItems = items {
+            self.page = self.page + 1
+            self.items = currentItems + newItems
+        } else {
+            self.items = items
+        }
+        self.moreAvailable = (items?.count ?? 0) == self.pageSize
+        
         self.error = error
         if let error = error, !(error is GRServerError) {
             self.status = .error

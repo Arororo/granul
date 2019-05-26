@@ -79,6 +79,14 @@ extension ItemsViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.configure(with: item)
+        
+        //check if the next page needed
+        if let viewModel = self.viewModel {
+            if viewModel.itemsCount == (indexPath.row + 1) && viewModel.moreAvailable && viewModel.status != .loading {
+                self.viewModel?.loadNextPage()
+            }
+        }
+        
         return cell
     }
     

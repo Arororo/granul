@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DataManager {
-    func getItems(completion: @escaping([GRItemPresentable]?, Error?) -> Void)
+    func getItems(startingIndex: Int?, size: Int?, completion: @escaping([GRItemPresentable]?, Error?) -> Void)
 }
 
 class GRDataManager {
@@ -26,7 +26,7 @@ class GRDataManager {
 }
 
 extension GRDataManager: DataManager{
-    func getItems(completion: @escaping([GRItemPresentable]?, Error?) -> Void) {
+    func getItems(startingIndex: Int?, size: Int?, completion: @escaping([GRItemPresentable]?, Error?) -> Void) {
         self.networkManager.getItems { (result) in
             switch result {
             case .success(let itemModels):
@@ -35,7 +35,7 @@ extension GRDataManager: DataManager{
                         completion(nil, error)
                         return
                     }
-                    self.coreDataManager.getItems { result in
+                    self.coreDataManager.getItems(startingIndex: startingIndex, size: size) { result in
                         switch result {
                         case .success(let items):
                             completion(items, nil)
@@ -45,7 +45,7 @@ extension GRDataManager: DataManager{
                     }
                 })
             case .failure(let networkError):
-                self.coreDataManager.getItems { result in
+                self.coreDataManager.getItems(startingIndex: startingIndex, size: size) { result in
                     switch result {
                     case .success(let items):
                         completion(items, networkError)

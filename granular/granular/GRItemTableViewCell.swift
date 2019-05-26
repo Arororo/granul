@@ -27,9 +27,9 @@ class GRItemTableViewCell: UITableViewCell {
             self.itemIcon.loadImageUsingCache(withUrl: imageUrl, completion: { isSuccess in
                 DispatchQueue.main.async { [weak self] in
                     self?.iconActivityIndicator.stopAnimating()
-                }
-                if !isSuccess {
-                    self.itemIcon.image = UIImage(named: "question")
+                    if !isSuccess {
+                        self?.itemIcon.image = UIImage(named: "question")
+                    }
                 }
             })
         }

@@ -11,7 +11,7 @@ import CoreData
 
 protocol CoreDataManager {
     func replaceItems(_ items: [GRItemNetworkModel], completion: @escaping(Error?) -> Void)
-    func getItems(completion: @escaping(Result<[GRItem]?, Error>) -> Void)
+    func getItems(startingIndex: Int?, size: Int?, completion: @escaping(Result<[GRItem]?, Error>) -> Void)
 }
 
 class GRCoreDataManager: CoreDataManager {
@@ -76,6 +76,25 @@ class GRCoreDataManager: CoreDataManager {
         DispatchQueue.main.async {
             let context = self.mainContext
             let request = NSFetchRequest<NSFetchRequestResult>(entityName: "GRItem")
+            request.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
+            request.returnsObjectsAsFaults = false
+            do {
+                let result = try context.fetch(request)
+                completion(.success(result as? [GRItem]))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getItems(startingIndex: Int?, size: Int?, completion: @escaping(Result<[GRItem]?, Error>) -> Void) {
+        DispatchQueue.main.async {
+            let context = self.mainContext
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "GRItem")
+            if let startingIndex = startingIndex, let size = size {
+                request.fetchOffset = startingIndex
+                request.fetchLimit = size
+            }
             request.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
             request.returnsObjectsAsFaults = false
             do {
