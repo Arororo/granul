@@ -13,7 +13,7 @@
 		0B8D191E2299B6BB003AB008 /* granular.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D191C2299B6BB003AB008 /* granular.xcdatamodeld */; };
 		0B8D19202299B6BD003AB008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D191F2299B6BD003AB008 /* Assets.xcassets */; };
 		0B8D19232299B6BD003AB008 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D19212299B6BD003AB008 /* LaunchScreen.storyboard */; };
-		0B8D192E2299B6BD003AB008 /* granularTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D192D2299B6BD003AB008 /* granularTests.swift */; };
+		0B8D192E2299B6BD003AB008 /* ItemsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D192D2299B6BD003AB008 /* ItemsViewModelTests.swift */; };
 		0B8D19392299BB07003AB008 /* APIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19382299BB07003AB008 /* APIConnector.swift */; };
 		0B8D193C2299BB76003AB008 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193B2299BB76003AB008 /* Result.swift */; };
 		0B8D193E2299BC72003AB008 /* GRAPIConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D193D2299BC72003AB008 /* GRAPIConnector.swift */; };
@@ -51,7 +51,7 @@
 		0B8D19222299B6BD003AB008 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B8D19242299B6BD003AB008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B8D19292299B6BD003AB008 /* granularTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = granularTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0B8D192D2299B6BD003AB008 /* granularTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = granularTests.swift; sourceTree = "<group>"; };
+		0B8D192D2299B6BD003AB008 /* ItemsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModelTests.swift; sourceTree = "<group>"; };
 		0B8D192F2299B6BD003AB008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0B8D19382299BB07003AB008 /* APIConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnector.swift; sourceTree = "<group>"; };
 		0B8D193B2299BB76003AB008 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		0B8D192C2299B6BD003AB008 /* granularTests */ = {
 			isa = PBXGroup;
 			children = (
-				0B8D192D2299B6BD003AB008 /* granularTests.swift */,
+				0B8D192D2299B6BD003AB008 /* ItemsViewModelTests.swift */,
 				0B8D192F2299B6BD003AB008 /* Info.plist */,
 				0B8D195C229B3CD9003AB008 /* TestDataManagerMock.swift */,
 			);
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B8D192E2299B6BD003AB008 /* granularTests.swift in Sources */,
+				0B8D192E2299B6BD003AB008 /* ItemsViewModelTests.swift in Sources */,
 				0B8D195D229B3CD9003AB008 /* TestDataManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
