@@ -14,6 +14,7 @@ protocol ItemsViewModelDelegate: class {
 
 class ItemsViewModel: NSObject {
     weak var delegate: ItemsViewModelDelegate?
+    private var dataManager: DataManager
     private var items: [GRItem]?
     private var error: Error?
     var status = Status.loading
@@ -22,7 +23,8 @@ class ItemsViewModel: NSObject {
         return self.items?.count ?? 0
     }
     
-    required init(with delegate: ItemsViewModelDelegate?) {
+    required init(with delegate: ItemsViewModelDelegate?, dataManager: DataManager = GRDataManager.shared) {
+        self.dataManager = dataManager
         self.delegate = delegate
     }
     

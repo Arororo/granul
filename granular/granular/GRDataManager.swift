@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol DataManager {
+    func getItems(completion: @escaping([GRItem]?, Error?) -> Void)
+}
+
 class GRDataManager {
     static let shared = GRDataManager()
     
@@ -19,7 +23,9 @@ class GRDataManager {
         self.networkManager = networkManager
         self.coreDataManager = coreDataManager
     }
-    
+}
+
+extension GRDataManager: DataManager{
     func getItems(completion: @escaping([GRItem]?, Error?) -> Void) {
         self.networkManager.getItems { (result) in
             switch result {
