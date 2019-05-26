@@ -39,8 +39,8 @@
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KkW-hE-cbV"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NHA-JN-VI6" secondAttribute="bottom" constant="3" id="Nin-He-drA"/>
-                                    <constraint firstItem="NHA-JN-VI6" firstAttribute="top" secondItem="uD0-eA-p6w" secondAttribute="top" constant="3" id="Tn3-gu-797"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NHA-JN-VI6" secondAttribute="bottom" priority="750" constant="3" id="Nin-He-drA"/>
+                                    <constraint firstItem="NHA-JN-VI6" firstAttribute="top" secondItem="uD0-eA-p6w" secondAttribute="top" priority="750" constant="3" id="Tn3-gu-797"/>
                                     <constraint firstItem="NHA-JN-VI6" firstAttribute="leading" secondItem="uD0-eA-p6w" secondAttribute="leading" constant="8" id="eJC-ue-d08"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NHA-JN-VI6" secondAttribute="trailing" constant="8" id="nfi-TS-XxZ"/>
                                 </constraints>
