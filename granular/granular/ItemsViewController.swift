@@ -12,6 +12,7 @@ class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel: ItemsViewModel?
+    weak var refreshControl: UIRefreshControl?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,14 @@ class ItemsViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         GRItemTableViewCell.registerNib(tableView: self.tableView)
+        
+        //Add Refresh Control
+        self.tableView.refreshControl = UIRefreshControl()
+        self.refreshControl = self.tableView.refreshControl
+        self.refreshControl?.addTarget(self, action: #selector(updateItems), for: .valueChanged)
     }
     
-    private func updateItems() {
+    @objc private func updateItems() {
         self.viewModel?.load()
     }
 }
@@ -38,6 +44,7 @@ extension ItemsViewController: ItemsViewModelDelegate{
     
     func modelUpdated(_ model: ItemsViewModel) {
         self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
     }
     
 }
