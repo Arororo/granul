@@ -29,7 +29,7 @@
                         <rect key="frame" x="16" y="3" width="42" height="42"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="42" id="qr3-0B-7wa"/>
+                            <constraint firstAttribute="height" priority="751" constant="42" id="qr3-0B-7wa"/>
                             <constraint firstAttribute="width" secondItem="6k3-Y4-qfE" secondAttribute="height" multiplier="1:1" id="v7k-E0-oBG"/>
                         </constraints>
                     </imageView>

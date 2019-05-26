@@ -33,8 +33,6 @@ class ItemsViewController: UIViewController {
                 self?.viewModel?.update(with: result)
             }
         }
-        
-//        self.navigationController.presen
     }
 }
 

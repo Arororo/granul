@@ -75,8 +75,6 @@ class GRAPIConnector: APIConnector {
                 
                 // Try to cast to desired T
             } else if var data = data {
-                let responseData = String(data: data, encoding:.utf8)
-                print(responseData ?? "No data returned from backend with success.")
                 //Replaces data with an empty object in case we get a 200 w/o response body
                 if data.isEmpty {
                     data = "{}".data(using: .utf8)!

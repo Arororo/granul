@@ -8,7 +8,10 @@
 
 import Foundation
 
-class GRNetworkManager: NSObject {
+protocol NetworkManager {
+    func getItems(completion: @escaping(Result<[GRItemModel], Error>) -> Void)
+}
+class GRNetworkManager: NetworkManager {
     
     static let shared = GRNetworkManager(with: GRAPIConnector(with: GRNetworkGlobalSettings.shared.apiConnectorConfiguration))
     private let itemsSubPath = "/list.json"

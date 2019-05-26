@@ -14,7 +14,7 @@ protocol ItemsViewModelDelegate: class {
 
 class ItemsViewModel: NSObject {
     weak var delegate: ItemsViewModelDelegate?
-    private var items: [GRItemModel]?
+    private var items: [GRItem]?
     private var error: Error?
     
     var itemsCount: Int {
@@ -25,7 +25,7 @@ class ItemsViewModel: NSObject {
         self.delegate = delegate
     }
     
-    func update(with result: Result<[GRItemModel], Error>) {
+    func update(with result: Result<[GRItem], Error>) {
         self.items = nil
         self.error = nil
         switch result {
@@ -37,7 +37,7 @@ class ItemsViewModel: NSObject {
         self.delegate?.modelUpdated(self)
     }
     
-    func item(for indexPath: IndexPath) -> GRItemModel? {
+    func item(for indexPath: IndexPath) -> GRItem? {
         guard indexPath.row < self.itemsCount, let items = self.items else {
             return nil
         }

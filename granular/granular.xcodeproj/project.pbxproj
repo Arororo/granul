@@ -26,6 +26,8 @@
 		0B8D19522299C662003AB008 /* UIImageView+Downloads.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19512299C662003AB008 /* UIImageView+Downloads.swift */; };
 		0B8D19552299CD66003AB008 /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19542299CD66003AB008 /* ItemsViewModel.swift */; };
 		0B8D19572299D204003AB008 /* TableViewCell+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */; };
+		0B8D1959229A0B27003AB008 /* GRCoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D1958229A0B27003AB008 /* GRCoreDataManager.swift */; };
+		0B8D195B229B0E6E003AB008 /* GRItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D195A229B0E6E003AB008 /* GRItem+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		0B8D19512299C662003AB008 /* UIImageView+Downloads.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Downloads.swift"; sourceTree = "<group>"; };
 		0B8D19542299CD66003AB008 /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
 		0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableViewCell+Helper.swift"; sourceTree = "<group>"; };
+		0B8D1958229A0B27003AB008 /* GRCoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GRCoreDataManager.swift; sourceTree = "<group>"; };
+		0B8D195A229B0E6E003AB008 /* GRItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GRItem+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				0B8D191C2299B6BB003AB008 /* granular.xcdatamodeld */,
 				0B8D19482299C3DF003AB008 /* GRItem+CoreDataClass.swift */,
 				0B8D19492299C3DF003AB008 /* GRItem+CoreDataProperties.swift */,
+				0B8D195A229B0E6E003AB008 /* GRItem+Extension.swift */,
+				0B8D1958229A0B27003AB008 /* GRCoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B8D19472299C27A003AB008 /* GRDataManager.swift in Sources */,
+				0B8D195B229B0E6E003AB008 /* GRItem+Extension.swift in Sources */,
 				0B8D194F2299C4AF003AB008 /* GRItemTableViewCell.swift in Sources */,
 				0B8D19442299BEBC003AB008 /* GRItemModel.swift in Sources */,
 				0B8D19182299B6BB003AB008 /* ItemsViewController.swift in Sources */,
@@ -285,6 +292,7 @@
 				0B8D19162299B6BB003AB008 /* AppDelegate.swift in Sources */,
 				0B8D19522299C662003AB008 /* UIImageView+Downloads.swift in Sources */,
 				0B8D19392299BB07003AB008 /* APIConnector.swift in Sources */,
+				0B8D1959229A0B27003AB008 /* GRCoreDataManager.swift in Sources */,
 				0B8D19402299BDAC003AB008 /* GRNetworkManager.swift in Sources */,
 				0B8D191E2299B6BB003AB008 /* granular.xcdatamodeld in Sources */,
 			);
