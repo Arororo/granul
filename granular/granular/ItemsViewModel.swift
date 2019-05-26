@@ -16,6 +16,7 @@ class ItemsViewModel: NSObject {
     weak var delegate: ItemsViewModelDelegate?
     private var items: [GRItem]?
     private var error: Error?
+    var status = Status.loading
     
     var itemsCount: Int {
         return self.items?.count ?? 0
@@ -25,14 +26,24 @@ class ItemsViewModel: NSObject {
         self.delegate = delegate
     }
     
+    func load() {
+        GRDataManager.shared.getItems { result in
+            DispatchQueue.main.async { [weak self] in
+                self?.update(with: result)
+            }
+        }
+    }
+    
     func update(with result: Result<[GRItem], Error>) {
         self.items = nil
         self.error = nil
         switch result {
         case .success(let items):
             self.items = items
+            self.status = .success
         case .failure(let error):
             self.error = error
+            self.status = .error
         }
         self.delegate?.modelUpdated(self)
     }
@@ -42,5 +53,13 @@ class ItemsViewModel: NSObject {
             return nil
         }
         return items[indexPath.row]
+    }
+}
+
+extension ItemsViewModel {
+    enum Status {
+        case success
+        case loading
+        case error
     }
 }

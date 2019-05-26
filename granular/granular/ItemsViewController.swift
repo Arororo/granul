@@ -18,7 +18,7 @@ class ItemsViewController: UIViewController {
         self.viewModel = ItemsViewModel(with: self)
         
         self.setupTableView()
-        self.updateItems()
+        self.viewModel?.load()
     }
     
     private func setupTableView() {
@@ -28,11 +28,7 @@ class ItemsViewController: UIViewController {
     }
     
     private func updateItems() {
-        GRDataManager.shared.getItems { result in
-            DispatchQueue.main.async { [weak self] in
-                self?.viewModel?.update(with: result)
-            }
-        }
+        self.viewModel?.load()
     }
 }
 
