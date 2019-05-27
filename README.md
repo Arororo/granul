@@ -6,8 +6,8 @@ Notes:
 * Use "pull-to-refresh" gesture to reload data.
 * In case of network call failure, the app should retreive data from the local database and notify user about this.
 * If a data request to the local database fails, the alert message should be presented.
-* For a sake of simplicity the interaction with local database is done in the main thread. In real life app if there is significant aamount of data, thus interactions should be done in a background thread.
+* For a sake of simplicity the interaction with local database is done in the main thread. In real life app if there is significant amount of data, thus interactions should be done in a background thread.
 * To improve performance and reduce the memory footprint, the pagination had been implemented for the list of items.
-* MVVM, Singleton and Faced architectures had been used.
+* MVVM, Singleton and Facade architectures had been used.
 * A view model had been covered with unit tests to demonstrate the advantages of MVVM and Dependency Injection patterns
 
