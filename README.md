@@ -1,4 +1,4 @@
-# granular-assignment
+# granular
 
 Task: Using mock endpoint, the app should fetch the data, store it in an on-device database, then display it in a list. For each entry, it should display the image referenced (one for example) on the left-hand side and display the name on the right-hand side, in the order that it is listed in the json response. The UI should support the various iPhone sizes, but you do not need to worry about iPad support.
 
