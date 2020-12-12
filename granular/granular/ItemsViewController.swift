@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Combine
 
 class ItemsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -40,6 +41,10 @@ class ItemsViewController: UIViewController {
     
     @objc private func updateItems() {
         self.viewModel?.load()
+    }
+    
+    @IBAction func onRefresh(_ sender: UIBarButtonItem) {
+        tableView.reloadData()
     }
 }
 
@@ -95,6 +100,22 @@ extension ItemsViewController: UITableViewDataSource {
 
 //MARK: - UITableViewDelegate
 extension ItemsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+//        let animation = AnimationFactory.makeSlideMoveWithBounce(span: cell.frame.height, duration: 0.5, delayFactor: 0.05)
+//        let animator = Animator(animation: animation)
+//        animator.animate(cell: cell, at: indexPath, in: tableView)
+    }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction (style: .destructive, title: "Delete") { _,_,_ in }
+        action.backgroundColor = .green
+        let config = UISwipeActionsConfiguration(actions: [action])
+        return config
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 }
 

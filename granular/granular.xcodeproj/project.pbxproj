@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B81575622A42B880022E608 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B81575522A42B880022E608 /* Animator.swift */; };
 		0B8D19162299B6BB003AB008 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19152299B6BB003AB008 /* AppDelegate.swift */; };
 		0B8D19182299B6BB003AB008 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8D19172299B6BB003AB008 /* ItemsViewController.swift */; };
 		0B8D191B2299B6BB003AB008 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B8D19192299B6BB003AB008 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B81575522A42B880022E608 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		0B8D19122299B6BB003AB008 /* granular.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = granular.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B8D19152299B6BB003AB008 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B8D19172299B6BB003AB008 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				0B8D19512299C662003AB008 /* UIImageView+Downloads.swift */,
 				0B8D19562299D204003AB008 /* TableViewCell+Helper.swift */,
+				0B81575522A42B880022E608 /* Animator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				0B8D19162299B6BB003AB008 /* AppDelegate.swift in Sources */,
 				0B8D19522299C662003AB008 /* UIImageView+Downloads.swift in Sources */,
 				0B8D19392299BB07003AB008 /* APIConnector.swift in Sources */,
+				0B81575622A42B880022E608 /* Animator.swift in Sources */,
 				0B8D1959229A0B27003AB008 /* GRCoreDataManager.swift in Sources */,
 				0B8D19402299BDAC003AB008 /* GRNetworkManager.swift in Sources */,
 				0B8D191E2299B6BB003AB008 /* granular.xcdatamodeld in Sources */,
@@ -391,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -446,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -463,6 +467,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BE377W3656;
 				INFOPLIST_FILE = granular/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BE377W3656;
 				INFOPLIST_FILE = granular/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

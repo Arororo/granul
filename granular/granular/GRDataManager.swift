@@ -48,6 +48,11 @@ extension GRDataManager: DataManager{
                 self.coreDataManager.getItems(startingIndex: startingIndex, size: size) { result in
                     switch result {
                     case .success(let items):
+                        if items?.count == 0 {
+                            let items = (0...99).compactMap {GRItemNetworkModel(name: "Item #\($0)", url: "")}
+                            completion(items, networkError)
+                            return
+                        }
                         completion(items, networkError)
                     case .failure(let error):
                         completion(nil, error)
