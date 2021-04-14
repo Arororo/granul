@@ -40,13 +40,13 @@ class GRAPIConnector: APIConnector {
     func performRequest<T>(method: APIMethod,
                            path: String,
                            queryParameters: [String : Any],
-                           completion: @escaping (ResultWithError<T>) -> Void) where T : Decodable {
+                           completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
         let headerParameters = ["Content-Type": "application/json",
                                 "Accept": "application/json"]
         var params = [String : Any]()
         params.merge(dictionary: queryParameters)
         guard let requestURL = self.requestURL(path: path, queryParams: params) else {
-            completion(ResultWithError.failure(RequestError.dataInconsistency))
+            completion(Result.failure(RequestError.dataInconsistency))
             return
         }
         var request = URLRequest(url: requestURL)
@@ -57,7 +57,7 @@ class GRAPIConnector: APIConnector {
             guard let response = urlresponse as? HTTPURLResponse else {
                 let errorMessage = "Something really wrong!!! We are unable to recognize the task's response"
                 print(errorMessage)
-                completion(ResultWithError.failure(GRServerError(message: errorMessage, code: .unknown)))
+                completion(Result.failure(GRServerError(message: errorMessage, code: .unknown)))
                 return
             }
             var serverError: GRServerError? = nil
@@ -72,7 +72,7 @@ class GRAPIConnector: APIConnector {
                 } else {
                     print("\(error)")
                 }
-                completion(ResultWithError.failure(error))
+                completion(Result.failure(error))
                 
                 // Try to cast to desired T
             } else if var data = data {
@@ -82,13 +82,13 @@ class GRAPIConnector: APIConnector {
                 }
                 do {
                     let expectedObject = try self.decoder.decode(T.self, from: data)
-                    completion(ResultWithError<T>.success(expectedObject))
+                    completion(Result.success(expectedObject))
                 } catch {
                     print("\(error)")
-                    completion(ResultWithError.failure(RequestError.jsonDecodingFailure))
+                    completion(Result.failure(RequestError.jsonDecodingFailure))
                 }
             } else {
-                completion(ResultWithError.failure(RequestError.unknownServerError()))
+                completion(Result.failure(RequestError.unknownServerError()))
             }
             
             

@@ -21,7 +21,7 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.defaultInfoBannerHeight = self.infoBahherHeightConstraint.constant
-        self.viewModel = ItemsViewModel(with: self)
+        self.viewModel = GRItemsViewModel(with: self)
         self.modelUpdated(self.viewModel!)
         
         self.setupTableView()

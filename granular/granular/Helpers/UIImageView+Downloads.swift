@@ -11,6 +11,7 @@ import UIKit
 extension UIImageView {
     
     static let imageCache: NSCache<NSString, UIImage> =  NSCache<NSString, UIImage>()
+    static let downloadQueue = DispatchQueue.init(label: "imageDownloadQueue")
     static private var downloadTaskKey: Void?
     var downloadTask: URLSessionDataTask? {
         get {
@@ -42,25 +43,29 @@ extension UIImageView {
             return
         }
         
-        // if not, download image from url
-        var request = URLRequest(url: url)
-        request.httpMethod = APIMethod.get.rawValue
-        self.downloadTask = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if error != nil {
-                print(error!)
-                completion?(false)
-                return
-            }
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data!) {
-                    UIImageView.imageCache.setObject(image, forKey: urlString as NSString)
-                    self.image = image
-                    completion?(true)
-                } else {
+        Self.downloadQueue.async { [weak self] in
+            var request = URLRequest(url: url)
+            request.httpMethod = APIMethod.get.rawValue
+            self?.downloadTask = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                if error != nil {
+                    print(error!)
                     completion?(false)
+                    return
                 }
-            }
-        })
-        self.downloadTask?.resume()
+                var inImage: UIImage?
+                if let data = data, let img = UIImage(data: data) {
+                    UIImageView.imageCache.setObject(img, forKey: urlString as NSString)
+                    inImage = img
+                }
+                DispatchQueue.main.async {
+                    if let image = inImage {
+                        self?.image = image
+                    }
+                    completion?(inImage != nil)
+                }
+            })
+            self?.downloadTask?.resume()
+        }
+        
     }
 }
