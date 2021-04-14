@@ -11,6 +11,6 @@ import Foundation
 class GRNetworkGlobalSettings {
     static let shared = GRNetworkGlobalSettings()
     let apiConnectorConfiguration = APIConnectorConfiguration(scheme: "https",
-                                                              baseURL: "raw.githubusercontent.com/granularag/granular_mobile_mock_response/master")
+                                                              baseURL: "granul.s3-us-west-2.amazonaws.com")
     
 }

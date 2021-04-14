@@ -106,10 +106,3 @@ class GRItemsViewModel: ItemsViewModel {
     }
 }
 
-extension ItemsViewModel {
-//    enum Status {
-//        case success
-//        case loading
-//        case error
-//    }
-}
