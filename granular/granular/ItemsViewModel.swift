@@ -12,7 +12,24 @@ protocol ItemsViewModelDelegate: class {
     func modelUpdated( _ model: ItemsViewModel)
 }
 
-class ItemsViewModel: NSObject {
+protocol ItemsViewModel {
+    var status: ItemsViewModelStatus { get }
+    var itemsCount: Int { get }
+    var moreAvailable: Bool { get }
+    func load()
+    func loadNextPage()
+    func item(for indexPath: IndexPath) -> GRItemPresentable?
+    func alertMessage() -> String?
+    func infoMessage() -> String?
+}
+
+enum ItemsViewModelStatus {
+    case success
+    case loading
+    case error
+}
+
+class GRItemsViewModel: ItemsViewModel {
     weak var delegate: ItemsViewModelDelegate?
     private var dataManager: DataManager
     private var items: [GRItemPresentable]?
@@ -20,7 +37,7 @@ class ItemsViewModel: NSObject {
     let pageSize = 30
     var page = 0
     var moreAvailable = true
-    var status = Status.loading
+    var status = ItemsViewModelStatus.loading
     
     var itemsCount: Int {
         return self.items?.count ?? 0
@@ -90,9 +107,9 @@ class ItemsViewModel: NSObject {
 }
 
 extension ItemsViewModel {
-    enum Status {
-        case success
-        case loading
-        case error
-    }
+//    enum Status {
+//        case success
+//        case loading
+//        case error
+//    }
 }
