@@ -81,7 +81,7 @@ protocol APIConnector {
     func performRequest<T>(method: APIMethod,
                            path: String,
                            queryParameters: [String : Any],
-                           completion: @escaping (ResultWithError<T>) -> Void) where T : Decodable
+                           completion: @escaping (Result<T, Error>) -> Void) where T : Decodable
     init(with configuration: APIConnectorConfiguration)
 }
 
