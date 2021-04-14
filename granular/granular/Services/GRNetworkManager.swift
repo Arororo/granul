@@ -28,6 +28,9 @@ class GRNetworkManager: NetworkManager {
     func getItems(completion: @escaping(Result<[GRItemNetworkModel], Error>) -> Void) {
         let params = [String : Any]()
         
+        ///The below code is used to generate the initial mock data
+        ///Commented out to reuse later
+        
 //        let baseUrl = GRNetworkGlobalSettings.shared.apiConnectorConfiguration.baseURL
 //        var items = [GRItemNetworkModel]()
 //        for i in 1...1000 {
